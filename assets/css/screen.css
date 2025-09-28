@@ -7,11 +7,53 @@
 body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;}
 img,svg,video{max-width:100%;height:auto;display:block;} a{color:var(--text);text-decoration:none;transition:color var(--transition),background var(--transition);}
 p{margin:0 0 1.15rem;} h1,h2,h3,h4,h5{margin:0 0 .75rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;}
-h3{background:var(--lime);border:2px solid #000;padding:.8rem 1.2rem;box-shadow:0 3px 0 #000;text-align:center;color:#000;font-weight:900;}
+h3{
+  background:var(--lime);
+  border:2px solid #000;
+  border-left: 4px solid var(--pink);
+  padding:.8rem 1.2rem;
+  box-shadow:0 3px 0 #000;
+  text-align:center;
+  color:#000;
+  font-weight:900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 h4{background:var(--lime);border:2px solid #000;padding:.6rem 1rem;box-shadow:0 3px 0 #000;text-align:center;color:#000;font-weight:900;font-size:clamp(1.1rem,2vw,1.4rem);}
 h1{font-size:clamp(2.05rem,5.2vw,3rem);} h2{font-size:clamp(1.75rem,3.6vw,2.35rem);} h3{font-size:clamp(1.4rem,2.4vw,1.85rem);} h4{font-size:1.2rem;} h5{font-size:1.02rem;}
 mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
-.container{max-width:var(--max-width);margin:0 auto;padding:0 1.4rem;} .flex{display:flex;align-items:center;}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 1.4rem;}
+
+/* Enhanced mobile padding for homepage */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .home-main {
+    padding: 1rem 0;
+  }
+  
+  .latest-list {
+    gap: 1.5rem;
+  }
+  
+  .latest-item {
+    padding: 1.2rem 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    padding: 0 1.4rem;
+  }
+  
+  .home-main {
+    padding: 1.5rem 0;
+  }
+} .flex{display:flex;align-items:center;}
 .gh-viewport{min-height:100vh;display:flex;flex-direction:column;} .site-main{flex:1 0 auto;}
 .skip-link{position:absolute;left:-999px;top:-999px;background:#000;color:#fff;padding:.6rem 1rem;z-index:1000;} .skip-link:focus{left:10px;top:10px;}
 .site-header{background:#fff;border-bottom:4px solid var(--lime-line);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(0,0,0,.06);}
@@ -36,7 +78,124 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 .uf-brand-pill{display:inline-block;background:#353839;color:#fff;padding:.25rem .55rem .22rem;border:2px solid #353839;font-weight:800;letter-spacing:.08em;box-shadow:0 2px 0 #000;text-decoration:none;}
 .uf-brand-pill:hover{background:var(--lime);color:#000;border-color:#000;}
 .weather-slim{max-width:var(--max-width);margin:0 auto 1.9rem;padding:0 1.4rem;margin-top:.85rem;}
-/* (Weather widget styles omitted here for brevity if already included in your existing screen.css r13 — keep them unchanged) */
+
+/* Weather Widget Styles - Mini boxes with emojis */
+.weather-slim-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 0 3px 0 #000;
+  padding: 1rem;
+}
+
+.ws-left {
+  flex: 1;
+  min-width: 200px;
+}
+
+.ws-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 900;
+  background: var(--lime);
+  padding: 0.5rem;
+  border: 2px solid #000;
+  box-shadow: 0 2px 0 #000;
+}
+
+.ws-emoji {
+  font-size: 1.2em;
+}
+
+.ws-primary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ws-temp {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000;
+}
+
+.ws-cond {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.ws-sunline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.sun-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sun-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.ws-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+.ws-meta > div {
+  background: var(--lime);
+  border: 2px solid #000;
+  box-shadow: 0 2px 0 #000;
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ws-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.ws-meta span:not(.ws-label) {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .weather-slim-inner {
+    flex-direction: column;
+  }
+  
+  .ws-meta {
+    grid-template-columns: repeat(2, 1fr);
+    min-width: auto;
+  }
+}
 
 /* Search Overlay */
 .site-icon-btn{border:2px solid #000;background:#fff;font-weight:800;font-size:.85rem;line-height:1;padding:.55rem .75rem;box-shadow:0 2px 0 #000;cursor:pointer;transition:background var(--transition),transform var(--transition);}
@@ -391,22 +550,38 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 
 /* New Pink and Green Styling Features */
 .pink-highlight-link {
-  background: linear-gradient(transparent 60%, var(--pink) 60%);
-  padding: 0 2px;
-  color: #000;
-  text-decoration: none;
+  color: var(--pink);
+  text-decoration: underline;
+  text-decoration-color: var(--pink);
+  text-underline-offset: 2px;
   font-weight: 600;
+  background: none;
+  padding: 0;
 }
 
 .pink-highlight-link:hover {
-  background: var(--pink);
+  color: var(--pink);
   text-decoration: underline;
+  text-decoration-color: var(--pink);
 }
 
 .green-highlight, mark {
   background: var(--lime);
   color: #000;
   padding: 0 2px;
+}
+
+/* Remove underlines from card links and make them bold pink */
+.latest-item a, .post-card a, .card a {
+  color: var(--pink);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.latest-item a:hover, .post-card a:hover, .card a:hover {
+  color: var(--pink);
+  text-decoration: none;
+  font-weight: 700;
 }
 
 /* Consistent heading style with pink vertical bar + green highlight + emoji + bold text */
@@ -435,14 +610,34 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   font-size: 0.75rem;
 }
 
-/* Update default post content links to use pink */
+/* Update default post content links to use pink underlines */
 .post-content a {
-  background: linear-gradient(transparent 60%, var(--pink) 60%);
-  padding: 0 2px;
+  color: var(--pink);
+  text-decoration: underline;
+  text-decoration-color: var(--pink);
+  text-underline-offset: 2px;
+  font-weight: 600;
+  background: none;
+  padding: 0;
 }
 
 .post-content a:hover {
-  background: var(--pink);
+  color: var(--pink);
   text-decoration: underline;
+  text-decoration-color: var(--pink);
+}
+
+/* Remove back-to-top buttons from anchors */
+.back-to-top, .to-top, .top-link, [href="#top"], [href="#back-to-top"] {
+  display: none !important;
+}
+
+/* Ensure clean anchor styling without back-to-top elements */
+a[name], a[id] {
+  position: relative;
+}
+
+a[name]::after, a[id]::after {
+  display: none;
 }
 
