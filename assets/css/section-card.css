@@ -38,6 +38,7 @@
 .c-link-table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 1.5rem;
 }
 
 .c-link-table th {
@@ -48,12 +49,28 @@
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
+  border: 2px solid #000;
+}
+
+.national-links th {
+  background-color: #ebf998;
+  color: #000;
+}
+
+.local-fun-links th {
+  background-color: #ebf998;
+  color: #000;
 }
 
 .c-link-table td {
   border: 2px solid #000;
+  border-top: 0;
   padding: 0.75rem;
   background-color: #fff;
+}
+
+.local-fun-links td:nth-child(2) {
+  border-left: 0;
 }
 
 .c-link-table a {
