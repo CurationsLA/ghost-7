@@ -274,8 +274,8 @@
       padding: 0 2px;
     }
 
-    /* Updated section heading style - regular size font, bold, small green box for first words, emoji, then regular bold font, all with pink vertical bar */
-    .section-heading {
+    /* Updated h3 styling - section heading style with pink vertical bar, regular size font, bold, small green box for first words, emoji, then regular bold font */
+    h3 {
       font-size: 1rem;
       margin-bottom: 1rem;
       display: flex;
@@ -284,15 +284,11 @@
       border-left: 4px solid var(--pink);
       padding-left: 1rem;
       background: none;
-      border-top: none;
-      border-right: none;
-      border-bottom: none;
-      box-shadow: none;
-      text-align: left;
       font-weight: 700;
+      color: #000;
     }
 
-    .section-heading .location-tag {
+    h3 .location-tag {
       background: var(--lime);
       color: #000;
       padding: 2px 6px;
@@ -303,12 +299,12 @@
       letter-spacing: 0.5px;
     }
 
-    .section-heading .headline-emoji {
+    h3 .headline-emoji {
       font-size: 1em;
       margin: 0 0.25rem;
     }
 
-    .section-heading .headline-text {
+    h3 .headline-text {
       font-weight: 700;
       font-size: 1rem;
     }
@@ -436,11 +432,11 @@
                 </p>
             </div>
             
-            <h4 class="section-heading">
+            <h3>
                 <span class="location-tag">SILVER LAKE</span>
                 <span class="headline-emoji">🍕</span>
                 <span class="headline-text">NEW PIZZA PLACE OPENS</span>
-            </h4>
+            </h3>
             
             <p style="color: var(--text-soft); line-height: 1.6; margin-bottom: 1rem;">
                 Silver Lake welcomes a new artisanal pizza restaurant focusing on locally-sourced ingredients and 
@@ -495,11 +491,11 @@
         <h2>New Styling Features</h2>
         <p>Demonstrating the new pink and green styling:</p>
         
-        <h4 class="section-heading">
+        <h3>
           <span class="location-tag">DEMO LOCATION</span>
           <span class="headline-emoji">🎨</span>
           <span class="headline-text">CONSISTENT HEADING STYLE</span>
-        </h4>
+        </h3>
         
         <p>This paragraph shows both <a href="#" class="pink-highlight-link">pink highlighted links</a> and 
         <mark class="green-highlight">green highlighted text</mark> that replaces Ghost's default yellow highlighting.</p>
