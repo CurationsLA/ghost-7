@@ -519,14 +519,14 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   padding: 0 2px;
 }
 
-/* Universal Section Heading Class
- * Usage pattern for content headlines:
+/* Universal Section Heading Class for Subheadings
+ * Usage pattern for content subheadings within main sections (EATS, COMMUNITY, etc. but NOT EVENTS):
  * 
- * <h2 class="section-heading">
+ * <h3 class="section-heading">
  *   <span class="location-tag">HOLLYWOOD</span>
  *   <span class="headline-emoji">🍟</span>
  *   <span class="headline-text">BURGER + FRIES</span>
- * </h2>
+ * </h3>
  * 
  * Components:
  * - Pink vertical bar (automatic)
@@ -541,7 +541,7 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   display: flex;
   align-items: center;
   gap: .5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
   font-weight: 900;
 }
