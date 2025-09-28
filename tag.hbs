@@ -1,0 +1,47 @@
+{{!< default}}
+
+<main class="site-main tag-main">
+  <section class="home-section home-latest">
+    <header class="section-header tag-header">
+      <h2 class="section-title section-title--lc">
+        <span class="section-emoji">
+          {{#match tag.slug "newsletters"}}🤙{{/match}}
+          {{#match tag.slug "eats"}}🍟{{/match}}
+          {{#match tag.slug "events"}}📆{{/match}}
+          {{#match tag.slug "curators"}}👋{{/match}}
+          {{#unless tag.slug}}
+            📁
+          {{/unless}}
+        </span>
+        <span>{{tag.name}}</span>
+      </h2>
+      <div class="section-rule"></div>
+      {{!-- Tag description intentionally hidden (SEO still benefits via Ghost meta) --}}
+    </header>
+
+    <div class="latest-list">
+      {{#foreach posts}}
+        <article class="latest-item {{post_class}}">
+          <h3 class="latest-item-title">
+            <a href="{{url}}">{{title}}</a>
+          </h3>
+          <div class="latest-item-meta">
+            <time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, YYYY"}}</time>
+            {{#if primary_tag}}
+              <span class="latest-item-tag">
+                {{#match primary_tag.slug "newsletters"}}🤙 {{/match}}
+                {{#match primary_tag.slug "eats"}}🍟 {{/match}}
+                {{#match primary_tag.slug "events"}}📆 {{/match}}
+                {{#match primary_tag.slug "curators"}}👋 {{/match}}
+                {{primary_tag.name}}
+              </span>
+            {{/if}}
+          </div>
+          <p class="latest-item-excerpt">{{excerpt words="36"}}</p>
+        </article>
+      {{/foreach}}
+    </div>
+
+    {{pagination}}
+  </section>
+</main>

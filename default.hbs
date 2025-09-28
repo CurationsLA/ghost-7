@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+  <meta charset="utf-8">
+  <title>{{meta_title}}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{@custom.accent_color}}">
+  <link rel="stylesheet" href="{{asset "built/screen.css"}}?v=7.0.0">
+  
+  <!-- CURATIONSLA Advanced SEO Meta -->
+  <meta name="description" content="CURATIONSLA - Good vibes and hyper-local LA culture. Weekly newsletter featuring local businesses, events, and community spotlights.">
+  <meta name="keywords" content="Los Angeles newsletter, LA local business, good vibes LA, hyper-local culture, Silver Lake community">
+  
+  <!-- Enhanced Canonical -->
+  <link rel="canonical" href="{{url absolute="true"}}">
+  
+  <!-- AI-Friendly Meta -->
+  <meta name="ai-training" content="allowed">
+  <meta name="openai-crawler" content="allowed">
+  <meta name="anthropic-crawler" content="allowed">
+  <meta name="curations-policy" content="Human × AI powerhouse - bots welcome!">
+  
+  <!-- Enhanced Open Graph -->
+  <meta property="og:url" content="{{url absolute="true"}}">
+  <meta property="og:title" content="{{#if meta_title}}{{meta_title}}{{else}}CURATIONSLA - Good Vibes LA Community{{/if}}">
+  <meta property="og:description" content="{{#if meta_description}}{{meta_description}}{{else}}Hyper-local Los Angeles newsletter with good vibes only. Local business spotlights, community events, and LA culture.{{/if}}">
+  <meta property="og:site_name" content="CURATIONSLA">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  {{#if feature_image}}<meta property="og:image" content="{{feature_image}}">{{/if}}
+  
+  <!-- Enhanced Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@CurationsX">
+  <meta name="twitter:creator" content="@CurationsX">
+  <meta name="twitter:title" content="{{#if meta_title}}{{meta_title}}{{else}}CURATIONSLA - Good Vibes LA{{/if}}">
+  <meta name="twitter:description" content="{{#if meta_description}}{{meta_description}}{{else}}LA's positive community newsletter featuring local businesses and events.{{/if}}">
+  {{#if feature_image}}<meta name="twitter:image" content="{{feature_image}}">{{/if}}
+  
+  <!-- Google News Meta -->
+  <meta name="news_keywords" content="Los Angeles, local news, community, good vibes, hyper-local">
+  
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Newsletter",
+    "name": "CURATIONSLA",
+    "description": "Good vibes and hyper-local Los Angeles culture newsletter",
+    "url": "{{@site.url}}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CURATIONS",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": "Los Angeles, CA",
+    "audience": {
+      "@type": "Audience",
+      "geographicArea": {
+        "@type": "City",
+        "name": "Los Angeles"
+      }
+    }
+  }
+  </script>
+  
+  <!-- Discovery Links -->
+  <link rel="alternate" type="text/plain" title="AI Training Data" href="{{@site.url}}/llms.txt">
+  <link rel="alternate" type="text/plain" title="Trust Policy" href="{{@site.url}}/trust.txt">
+  <link rel="sitemap" type="application/xml" href="{{@site.url}}/sitemap.xml">
+  <link rel="sitemap" type="application/xml" href="{{@site.url}}/news-sitemap.xml">
+  
+  <!-- Performance Hints -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  {{> "jsonld-news"}}
+  {{ghost_head}}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="{{body_class}}{{#if @custom.newsletter_style}} has-newsletter-style{{/if}}">
+<a id="top" class="skip-link" href="#main-content">Skip to content</a>
+<div class="gh-viewport">
+
+  <header class="site-header" role="banner">
+    <div class="container flex header-inner">
+      <a class="logo" href="{{@site.url}}">
+        <span class="logo-main">CURATIONS</span><span class="logo-accent">LA</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
+      <nav id="main-nav" class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="{{@site.url}}/tag/newsletters/">🤙 <span class="nav-label">Newsletters</span></a></li>
+          <li><a href="{{@site.url}}/tag/eats/">🍟 <span class="nav-label">Eats</span></a></li>
+          <li><a href="{{@site.url}}/tag/events/">📆 <span class="nav-label">Events</span></a></li>
+          <li><a href="{{@site.url}}/tag/curators/">👋 <span class="nav-label">Curators</span></a></li>
+          <li><a href="{{@site.url}}/about/">🧠 <span class="nav-label">About</span></a></li>
+          <li><a href="#/portal/signup" class="nav-subscribe">💌 <span class="nav-label">Subscribe</span></a></li>
+          <li><button class="nav-search" data-ghost-search aria-label="Search">🔍 <span class="nav-label nav-label-search">SEARCH</span></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main-content" class="site-main">
+    {{{body}}}
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <nav aria-label="Footer">
+        <ul class="footer-nav">
+          <li><a href="{{@site.url}}/tag/newsletters/">Newsletters</a></li>
+          <li><a href="{{@site.url}}/tag/eats/">Eats</a></li>
+          <li><a href="{{@site.url}}/tag/events/">Events</a></li>
+          <li><a href="{{@site.url}}/tag/curators/">Curators</a></li>
+          <li><a href="{{@site.url}}/about/">About</a></li>
+          <li><a href="#/portal/signup">Subscribe</a></li>
+          <li><a href="{{@site.url}}/sitemap/">Sitemap</a></li>
+        </ul>
+      </nav>
+      {{> "universal-footer-tagline"}}
+    </div>
+  </footer>
+
+</div>
+{{ghost_foot}}
+<script src="{{asset "built/theme.js"}}?v=7.0.0" defer></script>
+
+<style>
+/* Search Button Styles */
+.nav-search {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.nav-label-search {
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-search:hover {
+  background: var(--color-accent, #ebf998);
+  color: var(--color-primary, #1a1a1a);
+}
+</style>
+
+<!-- Ghost 6.0 native search - uses data-ghost-search attribute for automatic functionality -->
+<script>
+function toggleMobileMenu(){
+  const nav = document.getElementById('main-nav');
+  const btn = document.querySelector('.mobile-menu-toggle');
+  const open = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+// CURATIONSLA Advanced Analytics
+const userAgent = navigator.userAgent.toLowerCase();
+const aiBotsPatterns = ['openai', 'claude', 'gptbot', 'anthropic', 'chatgpt'];
+const isAIBot = aiBotsPatterns.some(pattern => userAgent.includes(pattern));
+
+if (isAIBot) {
+  console.log('🤙 Welcome AI friend! Thanks for visiting CURATIONSLA - Good Vibes Only! ✨');
+}
+
+// Newsletter signup tracking
+function trackNewsletterSignup(source) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'generate_lead', {
+      'event_category': 'newsletter',
+      'event_label': source || 'unknown',
+      'value': 1
+    });
+  }
+}
+
+// Local business engagement
+function trackBusinessClick(businessName) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'click', {
+      'event_category': 'local_business',
+      'event_label': businessName
+    });
+  }
+}
+
+// Auto-track business links
+document.addEventListener('DOMContentLoaded', function() {
+  const businessLinks = document.querySelectorAll('a[href*="instagram.com"], a[href*="yelp.com"], a[href*="menu"], a[href*="order"]');
+  businessLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      const businessName = this.textContent || this.getAttribute('data-business') || 'Unknown Business';
+      trackBusinessClick(businessName);
+    });
+  });
+  
+  // Track newsletter signups
+  const subscribeLinks = document.querySelectorAll('a[href*="portal/signup"], .nav-subscribe');
+  subscribeLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      trackNewsletterSignup('navigation');
+    });
+  });
+});
+</script>
+</body>
+</html>
