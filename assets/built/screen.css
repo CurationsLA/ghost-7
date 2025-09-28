@@ -519,21 +519,31 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   padding: 0 2px;
 }
 
-/* Consistent heading style with pink vertical bar + green highlight + emoji + bold text */
+/* Universal Section Heading Class
+ * Usage pattern for content headlines:
+ * 
+ * <h2 class="section-heading">
+ *   <span class="location-tag">HOLLYWOOD</span>
+ *   <span class="headline-emoji">🍟</span>
+ *   <span class="headline-text">BURGER + FRIES</span>
+ * </h2>
+ * 
+ * Components:
+ * - Pink vertical bar (automatic)
+ * - Green highlighted location/category tag  
+ * - Emoji based on content type
+ * - Bold uppercase headline text
+ * - All elements display on same row
+ */
 .section-heading {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  border-left: 4px solid var(--pink);
+  padding-left: .8rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border-left: 4px solid var(--pink);
-  padding-left: 1rem;
-  background: none;
-  border-top: none;
-  border-right: none;
-  border-bottom: none;
-  box-shadow: none;
-  text-align: left;
+  gap: .5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
 }
 
 .section-heading .location-tag {
@@ -543,6 +553,19 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   border: 2px solid #000;
   font-weight: 900;
   font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-heading .headline-emoji {
+  font-size: 1em;
+  margin: 0 0.25rem;
+}
+
+.section-heading .headline-text {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Update default post content links to use pink */
