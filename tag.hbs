@@ -22,9 +22,9 @@
     <div class="latest-list">
       {{#foreach posts}}
         <article class="latest-item {{post_class}}">
-          <h3 class="latest-item-title">
+          <h4 class="latest-item-title">
             <a href="{{url}}">{{title}}</a>
-          </h3>
+          </h4>
           <div class="latest-item-meta">
             <time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, YYYY"}}</time>
             {{#if primary_tag}}
