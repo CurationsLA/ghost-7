@@ -3,8 +3,7 @@
   "description": "CURATIONSLA - Good Vibes × Hyper-Local LA Culture Newsletter Theme",
   "version": "7.6.0",
   "engines": {
-    "ghost": ">=6.0.0",
-    "ghost-api": "v5"
+    "ghost": ">=6.0.0"
   },
   "license": "MIT",
   "author": {
@@ -15,6 +14,7 @@
   "keywords": [
     "ghost",
     "theme",
+    "ghost-theme",
     "newsletter",
     "curationsla",
     "local-news",
