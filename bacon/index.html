@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bacon - CURATIONSLA Theme Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CURATIONSLA theme demo with updated lime color">
+  
+  <style>
+    /* CURATIONSLA Theme - Bacon Demo with Updated Color */
+    :root {
+      --lime: #EBF99A; /* Updated from #FEFEBE to #EBF99A */
+      --lime-strong: #EBF99A; /* Updated from #FEFEBE to #EBF99A */
+      --lime-line: #EBF99A; /* Updated from #FEFEBE to #EBF99A */
+      --text: #111;
+      --text-soft: #444;
+      --bg: #ffffff;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-s: 0;
+      --transition: .24s cubic-bezier(.4,.14,.2,1);
+      --max-width: 1140px;
+      --content-max: 820px;
+      --content-inner: 680px;
+      --shadow-elev: 0 3px 0 #000;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.4rem;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 4px solid var(--lime-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 0 rgba(0,0,0,.06);
+    }
+
+    .header-inner {
+      justify-content: space-between;
+      min-height: 74px;
+      padding: 4px 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 1.55rem;
+      letter-spacing: -1px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: .35rem;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .logo-accent {
+      font-weight: 900;
+      background: var(--lime);
+      padding: 2px 6px 3px;
+      box-shadow: 0 0 0 2px #000 inset;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-list a {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      font-weight: 800;
+      font-size: .78rem;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: .58rem .82rem .55rem;
+      border: 2px solid #000;
+      background: #fff;
+      line-height: 1;
+      box-shadow: 0 2px 0 #000;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus {
+      background: var(--lime);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 0 #000;
+    }
+
+    .nav-subscribe {
+      background: var(--lime);
+    }
+
+    .nav-subscribe:hover {
+      background: var(--lime-line);
+    }
+
+    .main-content {
+      padding: 3rem 0;
+    }
+
+    h1, h2, h3, h4, h5 {
+      margin: 0 0 .75rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.5px;
+    }
+
+    h1 {
+      font-size: clamp(2.05rem, 5.2vw, 3rem);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 3.6vw, 2.35rem);
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      background: var(--lime);
+      border: 2px solid #000;
+      padding: .8rem 1.2rem;
+      box-shadow: 0 3px 0 #000;
+      text-align: center;
+      color: #000;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+    }
+
+    h4 {
+      background: var(--lime);
+      border: 2px solid #000;
+      padding: .6rem 1rem;
+      box-shadow: 0 3px 0 #000;
+      text-align: center;
+      color: #000;
+      font-weight: 900;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+    }
+
+    p {
+      margin: 0 0 1.15rem;
+    }
+
+    .demo-section {
+      margin: 2rem 0;
+      padding: 2rem;
+      border: 2px solid #000;
+      background: #fafafa;
+    }
+
+    .color-demo {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .color-box {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .8rem;
+      text-align: center;
+      box-shadow: 0 3px 0 #000;
+    }
+
+    .old-color {
+      background: #FEFEBE;
+    }
+
+    .new-color {
+      background: #EBF99A;
+    }
+
+    .site-footer {
+      background: #111;
+      color: #eee;
+      margin-top: 4rem;
+      padding: 2.75rem 0 3.2rem;
+      font-size: .78rem;
+    }
+
+    .site-footer a {
+      color: #EBF99A; /* Updated from #FEFEBE to #EBF99A */
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .site-icon-btn {
+      border: 2px solid #000;
+      background: #fff;
+      font-weight: 800;
+      font-size: .85rem;
+      line-height: 1;
+      padding: .55rem .75rem;
+      box-shadow: 0 2px 0 #000;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      text-decoration: none;
+      color: #000;
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    .site-icon-btn:hover {
+      background: #EBF99A; /* Updated from #FEFEBE to #EBF99A */
+      transform: translateY(-3px);
+      box-shadow: 0 5px 0 #000;
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .65rem;
+      }
+      
+      .color-demo {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container flex header-inner">
+      <a class="logo" href="/">
+        <span class="logo-main">CURATIONS</span><span class="logo-accent">LA</span>
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="/newsletters/">🤙 <span class="nav-label">Newsletters</span></a></li>
+          <li><a href="/eats/">🍟 <span class="nav-label">Eats</span></a></li>
+          <li><a href="/events/">📆 <span class="nav-label">Events</span></a></li>
+          <li><a href="/about/">🧠 <span class="nav-label">About</span></a></li>
+          <li><a href="/subscribe/" class="nav-subscribe">💌 <span class="nav-label">Subscribe</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <h1>🥓 Bacon Demo - Color Update</h1>
+      
+      <div class="demo-section">
+        <h2>Color Change Demonstration</h2>
+        <p>This page demonstrates the CURATIONSLA theme with the lime color updated from <strong>#FEFEBE</strong> to <strong>#EBF99A</strong>.</p>
+        
+        <div class="color-demo">
+          <div class="color-box old-color">
+            <div>
+              OLD<br>
+              #FEFEBE
+            </div>
+          </div>
+          <div class="color-box new-color">
+            <div>
+              NEW<br>
+              #EBF99A
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>Header with Updated Lime Color</h3>
+        <p>This header uses the new lime color as the background. The original yellow (#FEFEBE) has been replaced with the new green-yellow (#EBF99A) throughout the theme.</p>
+      </div>
+
+      <div class="demo-section">
+        <h4>Another Header Style</h4>
+        <p>This is another header style that also uses the updated lime color. You can see how the new color appears across different elements of the theme.</p>
+        
+        <a href="#" class="site-icon-btn">Hover Me to See New Color</a>
+      </div>
+
+      <div class="demo-section">
+        <h2>Theme Elements Showcase</h2>
+        <p>All theme elements that previously used #FEFEBE now use #EBF99A:</p>
+        <ul>
+          <li>Header accent backgrounds</li>
+          <li>Navigation hover states</li>
+          <li>Button hover effects</li>
+          <li>Footer link colors</li>
+          <li>Border accent colors</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>CURATIONSLA Theme Demo - <a href="/">Updated with new lime color #EBF99A</a></p>
+      <p>Original color #FEFEBE has been successfully replaced throughout the theme.</p>
+    </div>
+  </footer>
+</body>
+</html>
