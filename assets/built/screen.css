@@ -90,8 +90,7 @@ h5{font-size:1.02rem;}
 .post-content a{background:linear-gradient(transparent 60%, var(--pink) 60%);padding:0 2px;}
 .green-highlight-link{background:linear-gradient(transparent 60%, var(--lime) 60%);padding:0 2px;color:#000;text-decoration:none;font-weight:600;}
 .green-highlight-link:hover{background:var(--lime);text-decoration:underline;}
-.pink-highlight-link{background:linear-gradient(transparent 60%, var(--pink) 60%);padding:0 2px;color:#000;text-decoration:none;font-weight:600;}
-.pink-highlight-link:hover{background:var(--pink);text-decoration:underline;}
+.pink-highlight-link{text-decoration:underline;text-decoration-color:var(--pink);background:transparent;}
 
 .vf-search-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:1200;display:flex;justify-content:center;align-items:flex-start;padding:6vh 1rem;overflow-y:auto;}
 .vf-search-panel{background:#fff;border:3px solid #000;box-shadow:0 6px 0 #000;max-width:820px;width:100%;padding:1.5rem 1.7rem 2rem;position:relative;}
@@ -490,16 +489,9 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 
 /* New Pink and Green Styling Features */
 .pink-highlight-link {
-  background: linear-gradient(transparent 60%, var(--pink) 60%);
-  padding: 0 2px;
-  color: #000;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.pink-highlight-link:hover {
-  background: var(--pink);
   text-decoration: underline;
+  text-decoration-color: var(--pink);
+  background: transparent;
 }
 
 .green-highlight, mark {
@@ -508,21 +500,13 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   padding: 0 2px;
 }
 
-/* Consistent heading style with pink vertical bar + green highlight + emoji + bold text */
+/* Section heading with pink vertical bar - Ghost validator fix */
 .section-heading {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  border-left: 4px solid var(--pink);
+  padding-left: .8rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border-left: 4px solid var(--pink);
-  padding-left: 1rem;
-  background: none;
-  border-top: none;
-  border-right: none;
-  border-bottom: none;
-  box-shadow: none;
-  text-align: left;
+  gap: .5rem;
 }
 
 .section-heading .location-tag {
@@ -543,5 +527,56 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 .post-content a:hover {
   background: var(--pink);
   text-decoration: underline;
+}
+
+/* Ghost validator fixes - Koenig width helper classes */
+.kg-width-wide {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 1200px;
+  margin-left: calc(50% - 600px);
+  margin-right: calc(50% - 600px);
+}
+
+.kg-width-full {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+@media (max-width: 1200px) {
+  .kg-width-wide {
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}
+
+/* Image rules for wide/full blocks */
+.kg-width-wide img,
+.kg-width-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.kg-width-wide figure,
+.kg-width-full figure {
+  margin: 2rem 0;
+}
+
+.kg-width-wide figcaption,
+.kg-width-full figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-soft);
+  margin-top: 0.5rem;
 }
 
