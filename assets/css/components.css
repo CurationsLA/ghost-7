@@ -37,11 +37,11 @@
 .post-content{max-width:var(--content-inner);margin:0 auto;}
 .post-content blockquote{margin:2rem auto;background:var(--lime);padding:1.2rem 1.35rem;border:3px solid #000;box-shadow:0 4px 0 #000;font-style:italic;max-width:60ch;}
 .post-content a {
-  color: var(--pink);
+  color: inherit;
   text-decoration: underline;
   text-decoration-color: var(--pink);
   text-underline-offset: 2px;
-  font-weight: 600;
+  font-weight: inherit;
   background: none;
   padding: 0;
 }
