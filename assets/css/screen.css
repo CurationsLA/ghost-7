@@ -199,6 +199,13 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   .newsletter-article table td{border:none;border-bottom:1px solid #eee;padding:.6rem .8rem;}
   .newsletter-article table td:last-child{border-bottom:none;}
 }
+
+/* Ghost Koenig width helpers - required by Ghost validator */
+.kg-width-wide { max-width: min(1100px, 100%); margin-left: auto; margin-right: auto; }
+.kg-width-full { width: 100vw; max-width: 100vw; margin-left: 50%; transform: translateX(-50%); }
+.kg-width-wide img, .kg-width-full img { width: 100%; height: auto; display:block; }
+@media (max-width: 900px) { .kg-width-full, .kg-width-wide { width: 100%; max-width: 100%; margin-left: 0; transform: none; } }
+
 /* Custom CurationsLA Styles */
 
 

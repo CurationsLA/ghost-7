@@ -170,6 +170,10 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 .section-back-up{display:inline-block;margin:.25rem 0 1.3rem;font-size:.55rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;background:#000;color:var(--lime);padding:.4rem .7rem .35rem;box-shadow:0 2px 0 #000;border:2px solid #000;line-height:1;}
 .section-back-up:hover{background:var(--lime);color:#000;}
 
+.section-heading { border-left: 4px solid var(--pink); padding-left: .8rem; display:flex; align-items:center; gap:.5rem; }
+.pink-highlight-link { text-decoration: underline; text-decoration-color: var(--pink); text-underline-offset: 2px; }
+.green-highlight { background: var(--lime); color: #000; padding: 0 2px; }
+
 /* Comments */
 .post-comments{margin:2.5rem auto 0;max-width:var(--content-inner);border-top:4px solid #000;padding-top:1.4rem;}
 .post-comments h2,.post-comments h3{font-size:1.2rem;}
@@ -305,6 +309,13 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   .newsletter-article table td{border:none;border-bottom:1px solid #eee;padding:.6rem .8rem;}
   .newsletter-article table td:last-child{border-bottom:none;}
 }
+
+/* Ghost Koenig width helpers - required by Ghost validator */
+.kg-width-wide { max-width: min(1100px, 100%); margin-left: auto; margin-right: auto; }
+.kg-width-full { width: 100vw; max-width: 100vw; margin-left: 50%; transform: translateX(-50%); }
+.kg-width-wide img, .kg-width-full img { width: 100%; height: auto; display:block; }
+@media (max-width: 900px) { .kg-width-full, .kg-width-wide { width: 100%; max-width: 100%; margin-left: 0; transform: none; } }
+
 /* Custom CurationsLA Styles */
 
 
@@ -508,21 +519,31 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   padding: 0 2px;
 }
 
-/* Consistent heading style with pink vertical bar + green highlight + emoji + bold text */
+/* Universal Section Heading Class for Subheadings
+ * Usage pattern for content subheadings within main sections (EATS, COMMUNITY, etc. but NOT EVENTS):
+ * 
+ * <h3 class="section-heading">
+ *   <span class="location-tag">HOLLYWOOD</span>
+ *   <span class="headline-emoji">🍟</span>
+ *   <span class="headline-text">BURGER + FRIES</span>
+ * </h3>
+ * 
+ * Components:
+ * - Pink vertical bar (automatic)
+ * - Green highlighted location/category tag  
+ * - Emoji based on content type
+ * - Bold uppercase headline text
+ * - All elements display on same row
+ */
 .section-heading {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  border-left: 4px solid var(--pink);
+  padding-left: .8rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border-left: 4px solid var(--pink);
-  padding-left: 1rem;
-  background: none;
-  border-top: none;
-  border-right: none;
-  border-bottom: none;
-  box-shadow: none;
-  text-align: left;
+  gap: .5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
 }
 
 .section-heading .location-tag {
@@ -532,6 +553,19 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
   border: 2px solid #000;
   font-weight: 900;
   font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-heading .headline-emoji {
+  font-size: 1em;
+  margin: 0 0.25rem;
+}
+
+.section-heading .headline-text {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Update default post content links to use pink */
