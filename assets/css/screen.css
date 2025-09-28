@@ -2,7 +2,7 @@
 
 /* CurationsLA Theme v7.0.0 - Enhanced Newsletter Design
    Added lime green table headers, mobile responsive tables, and improved newsletter styling */
-:root { --lime:#EBF99A; --lime-strong:#EBF99A; --lime-line:#EBF99A; --text:#111; --text-soft:#444; --bg:#ffffff; --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; --radius-s:0; --transition:.24s cubic-bezier(.4,.14,.2,1); --max-width:1140px; --content-max:820px; --content-inner:680px; --shadow-elev:0 3px 0 #000; }
+:root { --lime:#EBF99A; --lime-strong:#EBF99A; --lime-line:#EBF99A; --pink:#F99AEB; --text:#111; --text-soft:#444; --bg:#ffffff; --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; --radius-s:0; --transition:.24s cubic-bezier(.4,.14,.2,1); --max-width:1140px; --content-max:820px; --content-inner:680px; --shadow-elev:0 3px 0 #000; }
 *,*::before,*::after{box-sizing:border-box;} html{font-size:16px;-webkit-text-size-adjust:100%;}
 body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;}
 img,svg,video{max-width:100%;height:auto;display:block;} a{color:var(--text);text-decoration:none;transition:color var(--transition),background var(--transition);}
@@ -10,7 +10,7 @@ p{margin:0 0 1.15rem;} h1,h2,h3,h4,h5{margin:0 0 .75rem;font-weight:800;line-hei
 h3{background:var(--lime);border:2px solid #000;padding:.8rem 1.2rem;box-shadow:0 3px 0 #000;text-align:center;color:#000;font-weight:900;}
 h4{background:var(--lime);border:2px solid #000;padding:.6rem 1rem;box-shadow:0 3px 0 #000;text-align:center;color:#000;font-weight:900;font-size:clamp(1.1rem,2vw,1.4rem);}
 h1{font-size:clamp(2.05rem,5.2vw,3rem);} h2{font-size:clamp(1.75rem,3.6vw,2.35rem);} h3{font-size:clamp(1.4rem,2.4vw,1.85rem);} h4{font-size:1.2rem;} h5{font-size:1.02rem;}
-mark,::selection{background:#FFD6FF;color:#000;padding:0 2px;}
+mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 1.4rem;} .flex{display:flex;align-items:center;}
 .gh-viewport{min-height:100vh;display:flex;flex-direction:column;} .site-main{flex:1 0 auto;}
 .skip-link{position:absolute;left:-999px;top:-999px;background:#000;color:#fff;padding:.6rem 1rem;z-index:1000;} .skip-link:focus{left:10px;top:10px;}
@@ -181,7 +181,7 @@ mark,::selection{background:#FFD6FF;color:#000;padding:0 2px;}
 .newsletter-article h3{background:var(--lime);border:2px solid #000;padding:.8rem 1.2rem;margin:var(--section-gap) 0 1.2rem 0;box-shadow:0 3px 0 #000;position:relative;font-size:clamp(1.2rem,2.2vw,1.6rem);text-align:center;color:#000;font-weight:900;}
 .newsletter-article h4{background:var(--lime);border:2px solid #000;padding:.6rem 1rem;margin:var(--section-gap) 0 1rem 0;box-shadow:0 3px 0 #000;position:relative;font-size:clamp(1.1rem,2vw,1.4rem);text-align:center;color:#000;font-weight:900;}
 .newsletter-article h3::before{content:"";position:absolute;inset:0;border:2px solid var(--lime);pointer-events:none;mix-blend-mode:multiply;}
-.newsletter-article mark{background:#C2FFFF;color:#000;padding:2px 4px;font-weight:800;box-shadow:0 0 0 1px #000;}
+.newsletter-article mark{background:var(--lime);color:#000;padding:2px 4px;font-weight:800;box-shadow:0 0 0 1px #000;}
 
 @media (max-width:760px){
   .newsletter-article{--newsletter-spacing:.8rem;--section-gap:1.8rem;}
@@ -380,5 +380,62 @@ mark,::selection{background:#FFD6FF;color:#000;padding:0 2px;}
 }
 .dev-alert-bar .details {
     color: #333;
+}
+
+/* New Pink and Green Styling Features */
+.pink-highlight-link {
+  background: linear-gradient(transparent 60%, var(--pink) 60%);
+  padding: 0 2px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pink-highlight-link:hover {
+  background: var(--pink);
+  text-decoration: underline;
+}
+
+.green-highlight, mark {
+  background: var(--lime);
+  color: #000;
+  padding: 0 2px;
+}
+
+/* Consistent heading style with pink vertical bar + green highlight + emoji + bold text */
+.section-heading {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-left: 4px solid var(--pink);
+  padding-left: 1rem;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+.section-heading .location-tag {
+  background: var(--lime);
+  color: #000;
+  padding: 2px 6px;
+  border: 2px solid #000;
+  font-weight: 900;
+  font-size: 0.75rem;
+}
+
+/* Update default post content links to use pink */
+.post-content a {
+  background: linear-gradient(transparent 60%, var(--pink) 60%);
+  padding: 0 2px;
+}
+
+.post-content a:hover {
+  background: var(--pink);
+  text-decoration: underline;
 }
 
