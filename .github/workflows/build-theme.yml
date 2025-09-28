@@ -1,0 +1,106 @@
+name: Build Theme
+
+on:
+  push:
+    branches: [ fix/ghost-validator-and-bacon-headings ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Verify Ghost Koenig classes in built CSS
+      run: |
+        echo "Checking for required Ghost Koenig width classes..."
+        if ! grep -q "\.kg-width-wide" assets/built/screen.css; then
+          echo "ERROR: .kg-width-wide class not found in assets/built/screen.css"
+          exit 1
+        fi
+        if ! grep -q "\.kg-width-full" assets/built/screen.css; then
+          echo "ERROR: .kg-width-full class not found in assets/built/screen.css"
+          exit 1
+        fi
+        echo "✅ All required Ghost Koenig width classes found"
+    
+    - name: Create theme zip
+      run: |
+        echo "Creating theme zip..."
+        mkdir -p builds
+        
+        # Create temporary directory for zip contents
+        mkdir -p /tmp/theme-build
+        
+        # Copy required files and directories, excluding bacon/, node_modules/, README.md, and *.zip files
+        cp package.json /tmp/theme-build/
+        cp *.hbs /tmp/theme-build/
+        cp *.json /tmp/theme-build/ 2>/dev/null || true
+        cp -r assets/ /tmp/theme-build/
+        cp -r partials/ /tmp/theme-build/
+        
+        # Check if locales directory exists before copying
+        if [ -d "locales" ]; then
+          cp -r locales/ /tmp/theme-build/
+        fi
+        
+        # Create the zip
+        cd /tmp/theme-build
+        zip -r /home/runner/work/ghost-7/ghost-7/builds/curations-la-7.6.0-search-footer-fixed-updated.zip . -x "bacon/**" "node_modules/**" "README.md" "*.zip"
+        
+        cd /home/runner/work/ghost-7/ghost-7
+        echo "✅ Theme zip created successfully"
+    
+    - name: Generate validation report
+      run: |
+        echo "=== Theme Build Validation Report ===" > validation-report.txt
+        echo "Date: $(date)" >> validation-report.txt
+        echo "" >> validation-report.txt
+        
+        # Check for Koenig classes
+        echo "Ghost Koenig Width Classes:" >> validation-report.txt
+        if grep -q "\.kg-width-wide" assets/built/screen.css; then
+          echo "✅ .kg-width-wide - FOUND" >> validation-report.txt
+        else
+          echo "❌ .kg-width-wide - MISSING" >> validation-report.txt
+        fi
+        
+        if grep -q "\.kg-width-full" assets/built/screen.css; then
+          echo "✅ .kg-width-full - FOUND" >> validation-report.txt
+        else
+          echo "❌ .kg-width-full - MISSING" >> validation-report.txt
+        fi
+        
+        echo "" >> validation-report.txt
+        
+        # Check zip size
+        if [ -f "builds/curations-la-7.6.0-search-footer-fixed-updated.zip" ]; then
+          ZIP_SIZE=$(stat -c%s "builds/curations-la-7.6.0-search-footer-fixed-updated.zip")
+          ZIP_SIZE_MB=$(echo "scale=2; $ZIP_SIZE / 1024 / 1024" | bc)
+          echo "Zip File:" >> validation-report.txt
+          echo "✅ curations-la-7.6.0-search-footer-fixed-updated.zip - ${ZIP_SIZE_MB}MB" >> validation-report.txt
+        else
+          echo "❌ curations-la-7.6.0-search-footer-fixed-updated.zip - NOT CREATED" >> validation-report.txt
+        fi
+        
+        echo "" >> validation-report.txt
+        echo "Build completed successfully!" >> validation-report.txt
+        
+        # Display the report
+        cat validation-report.txt
+    
+    - name: Upload theme zip as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: curations-la-theme-zip
+        path: builds/curations-la-7.6.0-search-footer-fixed-updated.zip
+    
+    - name: Commit theme zip to repository
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add builds/curations-la-7.6.0-search-footer-fixed-updated.zip
+        git add validation-report.txt
+        git commit -m "Add built theme zip curations-la-7.6.0-search-footer-fixed-updated.zip" || echo "No changes to commit"
+        git push
