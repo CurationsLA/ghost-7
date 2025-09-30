@@ -5,7 +5,7 @@
 :root { --lime:#EBF99A; --lime-strong:#EBF99A; --lime-line:#EBF99A; --pink:#F99AEB; --text:#111; --text-soft:#444; --bg:#ffffff; --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; --radius-s:0; --transition:.24s cubic-bezier(.4,.14,.2,1); --max-width:1140px; --content-max:820px; --content-inner:680px; --shadow-elev:0 3px 0 #000; }
 *,*::before,*::after{box-sizing:border-box;} html{font-size:16px;-webkit-text-size-adjust:100%;}
 body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;}
-img,svg,video{max-width:100%;height:auto;display:block;} a{color:var(--text);text-decoration:none;transition:color var(--transition),background var(--transition);}
+img,svg,video{max-width:100%;height:auto;display:block;} a{color:var(--text);text-decoration:inherit;transition:color var(--transition),background var(--transition);}
 p{margin:0 0 1.15rem;} h1,h2,h3,h4,h5{margin:0 0 .75rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;}
 /* Updated h3 styling - section heading style with pink vertical bar, paragraph-sized font, bold, small green box for first words, emoji, then regular bold font */
 h3 {
@@ -1272,5 +1272,71 @@ a[name]::after, a[id]::after {
 .post-content .embed-responsive iframe, .post-content .kg-embed-card iframe {
   border: none;
   box-shadow: none;
+}
+
+/* CRITICAL FIX: Pink hyperlink underlines - MUST display by default on all pages/posts/newsletters */
+/* This MUST be at the end of CSS to override ALL other rules including base.css */
+/* Homepage links are explicitly excluded below */
+
+/* Apply to ALL content links with maximum specificity */
+.post-content a,
+.post-content a:any-link,
+.page-content a,
+.page-content a:any-link,
+.newsletter-article a,
+.newsletter-article a:any-link,
+.framed-article a,
+.framed-article a:any-link,
+.gh-content a,
+.gh-content a:any-link,
+article.post a,
+article.page a,
+article a:any-link,
+.post-full-content a,
+.post-full-content a:any-link,
+.kg-canvas a,
+.kg-width-wide a,
+.kg-width-full a {
+  text-decoration: underline !important;
+  text-decoration-color: #F99AEB !important;
+  text-decoration-color: var(--pink) !important;
+  text-decoration-style: solid !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 2px !important;
+  -webkit-text-decoration-line: underline !important;
+  -webkit-text-decoration-color: #F99AEB !important;
+  -webkit-text-decoration-style: solid !important;
+  -webkit-text-decoration-thickness: 2px !important;
+  color: inherit !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Hover state - thicker underline */
+.post-content a:hover,
+.page-content a:hover,
+.newsletter-article a:hover,
+.framed-article a:hover,
+.gh-content a:hover,
+article.post a:hover,
+article.page a:hover,
+.post-full-content a:hover,
+.kg-canvas a:hover,
+.kg-width-wide a:hover,
+.kg-width-full a:hover {
+  text-decoration: underline !important;
+  text-decoration-color: #F99AEB !important;
+  text-decoration-color: var(--pink) !important;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 1px !important;
+  -webkit-text-decoration-thickness: 3px !important;
+}
+
+/* Explicitly exclude homepage links from underlines */
+.home-main a,
+.latest-item a,
+.latest-item-title a,
+.home-section a {
+  text-decoration: none !important;
 }
 
