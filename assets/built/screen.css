@@ -1129,23 +1129,54 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 /* Remove old section-heading class since it's now part of h3 */
 
 /* Enhanced link styling for pages, posts, and newsletters - always visible pink underlines */
-.post-content a, .page-content a, .newsletter-article a, .framed-article a, .gh-content a {
+/* Ultra-specific selectors to override base.css a{text-decoration:none;} */
+.post-content a,
+.post-content a:link,
+.post-content a:visited,
+.page-content a,
+.page-content a:link,
+.page-content a:visited,
+.newsletter-article a,
+.newsletter-article a:link,
+.newsletter-article a:visited,
+.framed-article a,
+.framed-article a:link,
+.framed-article a:visited,
+.gh-content a,
+.gh-content a:link,
+.gh-content a:visited,
+article a,
+article a:link,
+article a:visited,
+.post-full-content a,
+.post-full-content a:link,
+.post-full-content a:visited {
   color: inherit !important;
   text-decoration: underline !important;
   text-decoration-color: var(--pink) !important;
+  text-decoration-style: solid !important;
   text-underline-offset: 2px !important;
   text-decoration-thickness: 2px !important;
+  -webkit-text-decoration: underline var(--pink) 2px !important;
   font-weight: inherit;
-  background: none;
+  background: none !important;
   padding: 0;
 }
 
-.post-content a:hover, .page-content a:hover, .newsletter-article a:hover, .framed-article a:hover, .gh-content a:hover {
+.post-content a:hover,
+.page-content a:hover,
+.newsletter-article a:hover,
+.framed-article a:hover,
+.gh-content a:hover,
+article a:hover,
+.post-full-content a:hover {
   color: inherit !important;
   text-decoration: underline !important;
   text-decoration-color: var(--pink) !important;
+  text-decoration-style: solid !important;
   text-decoration-thickness: 3px !important;
   text-underline-offset: 1px !important;
+  -webkit-text-decoration: underline var(--pink) 3px !important;
 }
 
 /* Homepage links remain unchanged - no underlines */
