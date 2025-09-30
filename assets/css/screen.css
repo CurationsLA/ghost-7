@@ -1129,23 +1129,23 @@ mark,::selection{background:var(--lime);color:#000;padding:0 2px;}
 /* Remove old section-heading class since it's now part of h3 */
 
 /* Enhanced link styling for pages, posts, and newsletters - always visible pink underlines */
-.post-content a, .page-content a, .newsletter-article a, .framed-article a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--pink);
-  text-underline-offset: 2px;
-  text-decoration-thickness: 2px;
+.post-content a, .page-content a, .newsletter-article a, .framed-article a, .gh-content a {
+  color: inherit !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--pink) !important;
+  text-underline-offset: 2px !important;
+  text-decoration-thickness: 2px !important;
   font-weight: inherit;
   background: none;
   padding: 0;
 }
 
-.post-content a:hover, .page-content a:hover, .newsletter-article a:hover, .framed-article a:hover {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--pink);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 1px;
+.post-content a:hover, .page-content a:hover, .newsletter-article a:hover, .framed-article a:hover, .gh-content a:hover {
+  color: inherit !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--pink) !important;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 1px !important;
 }
 
 /* Homepage links remain unchanged - no underlines */
