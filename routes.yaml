@@ -1,0 +1,80 @@
+# 🎯 SIMPLE GHOST TAGS-BASED ROUTES - RECOMMENDED
+# Uses Ghost's automatic tag archives (already working!)
+# Minimal setup, maximum Ghost SEO benefits
+# A project curated by Humans x AI at Curations.cc
+
+routes:
+  # Business development pages only (the value-add features)
+  /partnerships/:
+    template: page-partnerships
+    data:
+      post: page.partnerships
+      
+  /submit/:
+    template: page-submit  
+    data:
+      post: page.submit
+      
+  # About pages
+  /about/:
+    template: page-about
+    data:
+      post: page.about
+  
+  /subscribe/:
+    template: page-subscribe
+    data:
+      post: page.subscribe
+  
+  /contact/:
+    template: page-contact
+    data:
+      post: page.contact
+  
+  /privacy/:
+    template: page-privacy
+    data:
+      post: page.privacy
+
+collections:
+  /:
+    permalink: /{slug}/
+    template: index
+    filter: visibility:public
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/
+
+redirects:
+  # Friendly URLs that redirect to Ghost's automatic tag archives
+  /newsletters: /tag/newsletters/
+  /eats: /tag/eats/
+  /events: /tag/events/
+  /curators: /tag/curators/
+  
+  # Neighborhood redirects to tag archives
+  /silver-lake: /tag/silver-lake/
+  /echo-park: /tag/echo-park/
+  /los-feliz: /tag/los-feliz/
+  /atwater-village: /tag/atwater-village/
+  /highland-park: /tag/highland-park/
+  /mount-washington: /tag/mount-washington/
+  /eagle-rock: /tag/eagle-rock/
+  
+  # Legacy and convenience redirects
+  /newsletter: /tag/newsletters/
+  /food: /tag/eats/
+  /restaurants: /tag/eats/
+  /calendar: /tag/events/
+  /team: /tag/curators/
+  
+  # Social shortcuts
+  /ig: https://instagram.com/curationsla
+  /insta: https://instagram.com/curationsla
+  /twitter: https://twitter.com/curationsla
+  /x: https://twitter.com/curationsla
+  
+  # Newsletter signup shortcuts
+  /signup: /subscribe/
+  /join: /subscribe/
