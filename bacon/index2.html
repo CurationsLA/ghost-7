@@ -250,18 +250,21 @@
       box-shadow: 0 5px 0 #000;
     }
 
-    /* New pink link highlight styles */
+    /* Pink highlight links - underline only, no pink color */
     .pink-highlight-link {
-      background: linear-gradient(transparent 60%, var(--pink) 60%);
-      padding: 0 2px;
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--pink);
+      text-underline-offset: 2px;
+      font-weight: inherit;
+      background: none;
+      padding: 0;
     }
 
     .pink-highlight-link:hover {
-      background: var(--pink);
+      color: inherit;
       text-decoration: underline;
+      text-decoration-color: var(--pink);
     }
 
     /* Green highlight for marked text (overrides Ghost default) */
@@ -271,9 +274,9 @@
       padding: 0 2px;
     }
 
-    /* Consistent heading style with pink vertical bar + green highlight + emoji + bold text */
-    .section-heading {
-      font-size: 1.1rem;
+    /* Updated h3 styling - section heading style with pink vertical bar, paragraph-sized font, bold, small green box for first words, emoji, then regular bold font */
+    h3 {
+      font-size: 1rem;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
@@ -281,20 +284,30 @@
       border-left: 4px solid var(--pink);
       padding-left: 1rem;
       background: none;
-      border-top: none;
-      border-right: none;
-      border-bottom: none;
-      box-shadow: none;
-      text-align: left;
+      font-weight: 400;
+      color: #000;
+      line-height: 1.55;
     }
 
-    .section-heading .location-tag {
+    h3 .location-tag {
       background: var(--lime);
       color: #000;
       padding: 2px 6px;
       border: 2px solid #000;
       font-weight: 900;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h3 .headline-emoji {
+      font-size: 1em;
+      margin: 0 0.25rem;
+    }
+
+    h3 .headline-text {
+      font-weight: 400;
+      font-size: 1rem;
     }
 
     @media (max-width: 768px) {
@@ -420,10 +433,11 @@
                 </p>
             </div>
             
-            <h4 class="section-heading">
+            <h3>
                 <span class="location-tag">SILVER LAKE</span>
-                🍕 NEW PIZZA PLACE OPENS
-            </h4>
+                <span class="headline-emoji">🍕</span>
+                <span class="headline-text">NEW PIZZA PLACE OPENS</span>
+            </h3>
             
             <p style="color: var(--text-soft); line-height: 1.6; margin-bottom: 1rem;">
                 Silver Lake welcomes a new artisanal pizza restaurant focusing on locally-sourced ingredients and 
@@ -478,10 +492,11 @@
         <h2>New Styling Features</h2>
         <p>Demonstrating the new pink and green styling:</p>
         
-        <h4 class="section-heading">
+        <h3>
           <span class="location-tag">DEMO LOCATION</span>
-          🎨 CONSISTENT HEADING STYLE
-        </h4>
+          <span class="headline-emoji">🎨</span>
+          <span class="headline-text">CONSISTENT HEADING STYLE</span>
+        </h3>
         
         <p>This paragraph shows both <a href="#" class="pink-highlight-link">pink highlighted links</a> and 
         <mark class="green-highlight">green highlighted text</mark> that replaces Ghost's default yellow highlighting.</p>

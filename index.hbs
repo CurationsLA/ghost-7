@@ -9,7 +9,7 @@
 
   <section class="home-section home-latest">
     <header class="section-header">
-      <h2 class="section-title section-title--lc section-heading">
+      <h2 class="section-title section-title--lc">
         <span class="location-tag">LATEST</span>
         <span class="headline-emoji">🤙</span>
         <span class="headline-text">VIBES</span>
@@ -20,22 +20,24 @@
     <div class="latest-list">
       {{#foreach posts}}
         <article class="latest-item {{post_class}}">
-          <h3 class="latest-item-title">
-            <a href="{{url}}">{{title}}</a>
-          </h3>
-          <div class="latest-item-meta">
-            <time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, YYYY"}}</time>
-            {{#if primary_tag}}
-              <span class="latest-item-tag">
-                {{#match primary_tag.slug "newsletters"}}🤙 {{/match}}
-                {{#match primary_tag.slug "eats"}}🍟 {{/match}}
-                {{#match primary_tag.slug "events"}}📆 {{/match}}
-                {{#match primary_tag.slug "curators"}}👋 {{/match}}
-                {{primary_tag.name}}
-              </span>
-            {{/if}}
+          <div class="latest-item-content">
+            <div class="latest-item-header">
+              {{#if primary_tag}}
+                <span class="latest-item-tag">
+                  {{#match primary_tag.slug "newsletters"}}🤙 {{/match}}
+                  {{#match primary_tag.slug "eats"}}🍟 {{/match}}
+                  {{#match primary_tag.slug "events"}}📆 {{/match}}
+                  {{#match primary_tag.slug "curators"}}👋 {{/match}}
+                  {{primary_tag.name}}
+                </span>
+              {{/if}}
+              <time class="latest-item-date" datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, YYYY"}}</time>
+            </div>
+            <h4 class="latest-item-title">
+              <a href="{{url}}">{{title}}</a>
+            </h4>
+            <p class="latest-item-excerpt">{{excerpt words="36"}}</p>
           </div>
-          <p class="latest-item-excerpt">{{excerpt words="36"}}</p>
         </article>
       {{/foreach}}
     </div>
